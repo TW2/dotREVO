@@ -14,20 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package dotrevo;
+package dotrevo.drawing;
+
+import java.awt.Color;
 
 /**
  *
  * @author Phil
  */
-public class DotREVO {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Revolution rev = new Revolution();
-        rev.setVisible(true);
+public class Colors {
+    
+    public static Color getGradientColor(Color from, Color to, float percent){
+        int r = (int)(from.getRed() * percent + to.getRed() * (1 - percent));
+        int g = (int)(from.getGreen()* percent + to.getGreen()* (1 - percent));
+        int b = (int)(from.getBlue()* percent + to.getBlue()* (1 - percent));
+        int a = (int)(from.getAlpha()* percent + to.getAlpha()* (1 - percent));
+        return new Color(r, g, b, a);
     }
     
 }
